@@ -19,6 +19,7 @@
         android:layout_marginRight="8dp"
         android:maxLines="1"
         android:textColor="@android:color/holo_red_light"
+        android:visibility="invisible"
         tools:text="Please enter data" />
 
 </LinearLayout>

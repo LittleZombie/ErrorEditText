@@ -12,8 +12,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:textSize="18dp"
-        android:text="Your Name: " />
+        android:text="Your Name: "
+        android:textSize="18dp" />
 
     <error.licen.com.erroredittext.TextInputLayout
         android:id="@+id/myTextInputLayout"
@@ -28,12 +28,30 @@
 
     </error.licen.com.erroredittext.TextInputLayout>
 
+    <error.licen.com.erroredittext.TextInputLayout
+        android:id="@+id/myTextInputLayout_forTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/myTextInputLayout">
+
+        <TextView
+            android:id="@+id/myTextView"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:gravity="center"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:textSize="16sp" />
+
+    </error.licen.com.erroredittext.TextInputLayout>
+
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_below="@id/myTextInputLayout"
+        android:layout_below="@id/myTextInputLayout_forTextView"
         android:layout_marginTop="16dp"
         android:text="Ok" />
 
