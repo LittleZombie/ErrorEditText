@@ -3,6 +3,7 @@ package error.licen.com.erroredittext.custom_widget;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.support.v7.widget.AppCompatImageView;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 
 import error.licen.com.erroredittext.DownloadImageTask;
@@ -27,6 +28,11 @@ public class UrlImageView extends AppCompatImageView {
 
 
     public void startDownloadUrl(String url) {
+        if(TextUtils.isEmpty(url)){
+            setImageResource(errorImageId);
+            return;
+        }
+
         new DownloadImageTask(new DownloadImageTask.OnImageListener() {
             @Override
             public void onLoadingUrl() {
