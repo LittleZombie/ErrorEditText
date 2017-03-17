@@ -1,58 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="8dp"
-    tools:context="error.licen.com.erroredittext.MainActivity">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/yourNameTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Your Name: "
-        android:textSize="18dp" />
-
-    <error.licen.com.erroredittext.TextInputLayout
-        android:id="@+id/myTextInputLayout"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/yourNameTextView">
+        android:padding="8dp"
+        tools:context="error.licen.com.erroredittext.MainActivity">
 
-        <EditText
-            android:id="@+id/myEditText"
-            android:layout_width="match_parent"
+        <error.licen.com.erroredittext.custom_widget.UrlImageView
+            android:id="@+id/correctImageView"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-    </error.licen.com.erroredittext.TextInputLayout>
-
-    <error.licen.com.erroredittext.TextInputLayout
-        android:id="@+id/myTextInputLayout_forTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/myTextInputLayout">
+        <error.licen.com.erroredittext.custom_widget.UrlImageView
+            android:id="@+id/wrongImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_below="@+id/correctImageView" />
 
         <TextView
-            android:id="@+id/myTextView"
+            android:id="@+id/yourNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/wrongImageView"
+            android:layout_marginTop="8dp"
+            android:text="Your Name: "
+            android:textSize="18dp" />
+
+        <error.licen.com.erroredittext.custom_widget.TextInputLayout
+            android:id="@+id/myTextInputLayout"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="?android:attr/selectableItemBackground"
-            android:gravity="center"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp"
-            android:textSize="16sp" />
+            android:layout_height="wrap_content"
+            android:layout_below="@id/wrongImageView"
+            android:layout_toRightOf="@id/yourNameTextView">
 
-    </error.licen.com.erroredittext.TextInputLayout>
+            <EditText
+                android:id="@+id/myEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@id/myTextInputLayout_forTextView"
-        android:layout_marginTop="16dp"
-        android:text="Ok" />
+        </error.licen.com.erroredittext.custom_widget.TextInputLayout>
 
-</RelativeLayout>
+        <error.licen.com.erroredittext.custom_widget.TextInputLayout
+            android:id="@+id/myTextInputLayout_forTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/myTextInputLayout">
+
+            <TextView
+                android:id="@+id/myTextView"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:gravity="center"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:textSize="16sp" />
+
+        </error.licen.com.erroredittext.custom_widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/myTextInputLayout_forTextView"
+            android:layout_marginTop="16dp"
+            android:text="Ok" />
+
+    </RelativeLayout>
+
+</ScrollView>

@@ -9,10 +9,16 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import error.licen.com.erroredittext.custom_widget.TextInputLayout;
+import error.licen.com.erroredittext.custom_widget.UrlImageView;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private TextInputLayout myTextInputLayout;
     private TextInputLayout myTextInputLayoutForTextView;
+
+    private String imageUrl = "https://firebasestorage.googleapis.com/v0/b/teststorage-7c50d.appspot.com/o/photos%2Fimage%3A34?alt=media&token=cda7198a-d79c-406c-bd14-0d538f482427";
+    private String wrong_imageUrl = "https://firebasestorage.googleapis.com/v0/b/teststorage-7c50d.appspot.com/o/photos%2Fimage%3A34?alt=media&token=cda";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +32,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         button.setOnClickListener(this);
 
         findViewById(R.id.myTextView).setOnClickListener(this);
+
+        ((UrlImageView)findViewById(R.id.correctImageView)).startDownloadUrl(imageUrl);
+        ((UrlImageView)findViewById(R.id.wrongImageView)).startDownloadUrl(wrong_imageUrl);
     }
 
     @Override

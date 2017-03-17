@@ -1,4 +1,4 @@
-package error.licen.com.erroredittext;
+package error.licen.com.erroredittext.custom_widget;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
@@ -14,6 +14,8 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import error.licen.com.erroredittext.R;
 
 
 public class TextInputLayout extends LinearLayout implements TextWatcher {
