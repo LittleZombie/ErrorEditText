@@ -3,16 +3,25 @@ package error.licen.com.erroredittext;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+
+import java.io.IOException;
+
 import error.licen.com.erroredittext.custom_widget.TextInputLayout;
 import error.licen.com.erroredittext.custom_widget.UrlImageView;
+import error.licen.com.erroredittext.okhttp.HttpClient;
+import error.licen.com.erroredittext.okhttp.RequestCallBack;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private String TAG = this.getClass().getName();
 
     private TextInputLayout myTextInputLayout;
     private TextInputLayout myTextInputLayoutForTextView;
@@ -66,5 +75,40 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private String getEditTextString(){
         return ((EditText)findViewById(R.id.myEditText)).getText().toString();
+    }
+
+
+    // 請求API
+    private void requestLoginTask(String loginData){
+        String data = new Gson().toJson(loginData);
+
+        try {
+            HttpClient.requestTask(data, loginCallback);
+        } catch (IOException e) {
+            e.printStackTrace();
+            Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
+            Log.e(TAG, "requestLoginTask() e : " + e.getMessage());
+        }
+    }
+
+    private RequestCallBack<Object> loginCallback = new RequestCallBack<Object>() {
+        @Override
+        public void onRequestFail(String errorMessage) {
+            layout(errorMessage);
+        }
+
+        @Override
+        public void onRequestSuccess(Object loginDataOutput) {
+            String outputString = new Gson().toJson(loginDataOutput);
+            layout(outputString);
+        }
+    };
+
+    private void layout(final String s){
+        runOnUiThread(new Runnable() {
+            public void run(){
+                ((TextView)findViewById(R.id.myTextView)).setText(s);
+            }
+        });
     }
 }
